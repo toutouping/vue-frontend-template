@@ -3,8 +3,46 @@ import Router from 'vue-router';
 import store from '@/store';
 import { mapGetters } from 'vuex';
 const demo = () => import('@/pages/demo/demo.vue')
+const main = () => import('@/pages/main/main.vue')
 
 Vue.use(Router);
+
+let router = new Router({
+    routes: [
+        {
+            path: '/',
+            redirect: resolve => require(['@/pages/404'], resolve)
+        },
+        {
+            path: '/main', /* 首页 */
+            component: main,
+            name: 'main', /* this.$route.matched.filter(item => item.name) */
+            meta: {
+                fullPage: true
+            }
+        },
+        {
+            path: '/demo',
+            component: demo,
+            name: 'demo', /* this.$route.matched.filter(item => item.name) */
+            meta: {
+                keepAlive: false, /* 用于在 <keep-alive> 中使用，判断是否需要进行缓存 */
+                bread: [
+                    {displayName: '一级菜单', path: ''},
+                    {displayName: '二级菜单', path: '/demo'},
+                ]
+            }
+        },
+        {
+            path: '/403',
+            component: resolve => require(['@/pages/403'], resolve)
+        },
+        {
+            path: '/404',
+            component: resolve => require(['@/pages/404'], resolve)
+        }
+    ]
+});
 
 let routerVue = new Vue({
     store,
@@ -34,35 +72,6 @@ let routerVue = new Vue({
         ...mapGetters('leftMenu', ['isAdmin', 'isGetUserPerm', 'routerList'])
     }
 })
-
-let router = new Router({
-    routes: [
-        // {
-        //     path: '/',
-        //     redirect: 'demo'
-        // },
-        {
-            path: '/403',
-            component: resolve => require(['@/pages/403'], resolve)
-        },
-        {
-            path: '/404',
-            component: resolve => require(['@/pages/404'], resolve)
-        },
-        {
-            path: '/demo', /* 首页 */
-            component: demo,
-            name: 'demo', /* this.$route.matched.filter(item => item.name) */
-            meta: {
-                keepAlive: false, /* 用于在 <keep-alive> 中使用，判断是否需要进行缓存 */
-                bread: [
-                    {displayName: '一级菜单', path: ''},
-                    {displayName: '二级菜单', path: '/demo'},
-                ]
-            }
-        }
-    ]
-});
 
 router.beforeEach(async (to, from, next) => {
     if (to.matched.length === 0) {

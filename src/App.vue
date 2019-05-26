@@ -1,14 +1,16 @@
 <template>
     <div class='app'>
-        <app-header></app-header>
-        <div class="flex-content">
-            <app-left-menu></app-left-menu>
-            <div class="app-container" :style="isCollapse ? 'width: calc(100% - 230px)' : 'width: calc(100% - 230px)'">
-                <app-breadcrumb :to="$route.meta.bread"></app-breadcrumb>
-                <div class="container">
-                    <router-view/>
+        <div class="fullpage">
+            <app-header></app-header>
+            <div class="flex-content">
+                <app-left-menu></app-left-menu>
+                <div class="app-container" :style="isCollapse ? 'width: calc(100% - 230px)' : 'width: calc(100% - 230px)'">
+                    <app-breadcrumb :to="$route.meta.bread"></app-breadcrumb>
+                    <div class="container">
+                        <router-view/>
+                    </div>
+                    <app-footer></app-footer>
                 </div>
-                <app-footer></app-footer>
             </div>
         </div>
     </div>
