@@ -29,5 +29,5 @@ describe('express mockjs test:', function () {
 
 // 这里可以添加你的自定义代码.
 app.listen(8082, function () {
-    console.log('listening at http://'+ host + ':8082/frontApi');
+    console.log('listening at http://'+ host + ':8082/api');
 });
