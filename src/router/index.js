@@ -2,8 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import store from '@/store';
 import { mapGetters } from 'vuex';
-
-const demo = () => import('@/pages/demo/demo');
+const demo = () => import('@/pages/demo/demo.vue')
 
 Vue.use(Router);
 
@@ -14,7 +13,7 @@ let routerVue = new Vue({
         async isRouterNameAuthority(routerName) {
             // 当前用户能访问的路由列表是否已获取,如果没有获取,则请求获取路由权限接口
             if (!this.isGetUserPerm) {
-                await this.$store.dispatch('leftmenu/getCurrentPermission')
+                await this.$store.dispatch('leftMenu/getCurrentPermission')
             }
             // 判断当前用户能访问的路由
             // 第一步，首先判断用户是否为管理员
@@ -32,16 +31,16 @@ let routerVue = new Vue({
         }
     },
     computed: {
-        ...mapGetters('leftmenu', ['isAdmin', 'isGetUserPerm', 'routerList'])
+        ...mapGetters('leftMenu', ['isAdmin', 'isGetUserPerm', 'routerList'])
     }
 })
 
 let router = new Router({
     routes: [
-        {
-            path: '/',
-            redirect: 'demo'
-        },
+        // {
+        //     path: '/',
+        //     redirect: 'demo'
+        // },
         {
             path: '/403',
             component: resolve => require(['@/pages/403'], resolve)
@@ -51,16 +50,17 @@ let router = new Router({
             component: resolve => require(['@/pages/404'], resolve)
         },
         {
-           path: '/demo',
-           name: 'demo',
-           component: demo,
-           meta: {
-               bread: [
-                {displayName: '一级菜单', path: ''},
-                {displayName: '二级菜单', path: '/demo'},
-               ]
-           },
-        },
+            path: '/demo', /* 首页 */
+            component: demo,
+            name: 'demo', /* this.$route.matched.filter(item => item.name) */
+            meta: {
+                keepAlive: false, /* 用于在 <keep-alive> 中使用，判断是否需要进行缓存 */
+                bread: [
+                    {displayName: '一级菜单', path: ''},
+                    {displayName: '二级菜单', path: '/demo'},
+                ]
+            }
+        }
     ]
 });
 

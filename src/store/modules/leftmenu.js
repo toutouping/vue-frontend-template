@@ -1,8 +1,8 @@
-import * as commonApi from '@/api/leftmenu'
+import * as commonApi from '@/api/leftMenu'
 import * as commonMethods from '@/common/js/common.js'
 
 const state = {
-  isAdmin: window.isAdmin === '1', // 管理员
+  isAdmin: true, // 管理员
   isGetUserPerm: false, // 获取到当前用户的路由权限
   routerMenuList: [], // 当前用户的路由菜单权限
   permissions: [], // 当前用户的操作权限

@@ -11,7 +11,7 @@ module.exports = {
         assetsPublicPath:'/',
         proxyTable: {// 设置代理
           '/frontApi': {
-            target: 'http://localhost:8001', // 你接口的域名
+            target: 'http://localhost:8082', // 你接口的域名
             changeOrigin: true,    // 如果接口跨域，需要进行这个参数配置
             pathRewrite: {
                 '^/frontApi': ''

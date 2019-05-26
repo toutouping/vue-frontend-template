@@ -51,7 +51,7 @@
             this.getUrl()
         },
         computed: {
-            ...mapGetters('leftmenu', ['routerMenuList']),
+            ...mapGetters('leftMenu', ['routerMenuList']),
             ...mapGetters('main', ['isCollapse'])
         },
         methods: {
