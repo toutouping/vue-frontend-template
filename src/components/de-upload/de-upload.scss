@@ -1,0 +1,102 @@
+.de-upload-contain {
+  position: relative;
+  max-width: 320px;
+  .file-uploads {
+    display: inline-block;
+    line-height: 1;
+    white-space: nowrap;
+    cursor: pointer;
+    border: 1px solid #DCDFE6;
+    color: #606266;
+    text-align: center;
+    box-sizing: border-box;
+    outline: 0;
+    margin: 0;
+    transition: .1s;
+    font-size: 12px;
+    border-radius: 3px;
+    padding: 9px 15px;
+    & >>> label {
+      cursor: pointer;
+    }
+    &:hover {
+      color: #409EFF;
+      border-color: #c6e2ff;
+      background-color: #ecf5ff;
+    }
+  }
+  .upload-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    .item {
+      transition: all .5s cubic-bezier(.55,0,.1,1);
+      font-size: 14px;
+      color: #606266;
+      line-height: 1.8;
+      margin-top: 5px;
+      position: relative;
+      box-sizing: border-box;
+      border-radius: 4px;
+      width: 100%;
+      &:firest-child {
+        margin-top: 10px;  
+      }
+      &.is-error {
+        .item-name {    
+          color: #F56C6C;
+        }
+      }
+      .item-name {    
+        color: #606266;
+        display: block;
+        margin-right: 40px;
+        overflow: hidden;
+        padding-left: 4px;
+        text-overflow: ellipsis;
+        transition: color .3s;
+        white-space: nowrap;
+        cursor: pointer;
+        .el-icon-document {
+          margin-right: 7px;  
+        }
+      }
+      &.is-success .item-name:hover {
+        color: #409EFF;
+      }
+      .item-status-label {
+        position: absolute;
+        right: 5px;
+        top: 0;
+        line-height: inherit;
+        display: block;
+        .upload-success {
+          color: #67C23A;
+        }
+        .upload-error {
+          color: #F56C6C;
+        }
+      }
+      .el-icon-close {
+        display: none;
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        cursor: pointer;
+        opacity: .75;
+        color: #606266;
+      }
+      .el-progress {
+        margin-left: 7px;
+      }
+      &:hover {
+        .item-status-label {
+          display: none;
+        }
+        .el-icon-close {
+          display: inline-block;
+        }
+      }
+    }
+  }
+}
