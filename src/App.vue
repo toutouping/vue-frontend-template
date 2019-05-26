@@ -1,13 +1,17 @@
 <template>
     <div class='app'>
-        <div class="fullpage">
+        <div v-if="$route.meta.fullPage" class="fullpage">
+            asdfasd
+        </div>
+        <div v-else>
             <app-header></app-header>
             <div class="flex-content">
                 <app-left-menu></app-left-menu>
                 <div class="app-container" :style="isCollapse ? 'width: calc(100% - 230px)' : 'width: calc(100% - 230px)'">
                     <app-breadcrumb :to="$route.meta.bread"></app-breadcrumb>
                     <div class="container">
-                        <router-view/>
+                        <keep-alive><router-view v-if="$route.meta.keepAlive"></router-view></keep-alive>
+                        <router-view v-if="!$route.meta.keepAlive"></router-view>
                     </div>
                     <app-footer></app-footer>
                 </div>

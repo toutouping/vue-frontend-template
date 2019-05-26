@@ -1,6 +1,6 @@
 <template>
   <div class="app-demo">
-    demo
+    main
   </div>
 </template>
 
