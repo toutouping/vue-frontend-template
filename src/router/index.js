@@ -2,8 +2,10 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import store from '@/store';
 import { mapGetters } from 'vuex';
-const demo = () => import('@/pages/demo/demo.vue')
-const main = () => import('@/pages/main/main.vue')
+const formDemo = () => import('@/pages/formDemo/formDemo.vue')
+const singlePageDemo = () => import('@/pages/singlePageDemo/singlePageDemo.vue')
+const blankDemo = () => import('@/pages/blankDemo/blankDemo.vue')
+const tableDemo = () => import('@/pages/tableDemo/tableDemo.vue')
 
 Vue.use(Router);
 
@@ -11,25 +13,49 @@ let router = new Router({
     routes: [
         {
             path: '/',
-            redirect: resolve => require(['@/pages/404'], resolve)
+            redirect: '/formDemo'
         },
         {
-            path: '/main', /* 首页 */
-            component: main,
-            name: 'main', /* this.$route.matched.filter(item => item.name) */
+            path: '/singlePageDemo',
+            component: singlePageDemo,
+            name: 'singlePageDemo',
             meta: {
                 fullPage: true
             }
         },
         {
-            path: '/demo',
-            component: demo,
-            name: 'demo', /* this.$route.matched.filter(item => item.name) */
+            path: '/formDemo',
+            component: formDemo,
+            name: 'formDemo',
             meta: {
                 keepAlive: false, /* 用于在 <keep-alive> 中使用，判断是否需要进行缓存 */
                 bread: [
+                    {displayName: '案例', path: ''},
+                    {displayName: '表单案例', path: '/formDemo'},
+                ]
+            }
+        },
+        {
+            path: '/tableDemo',
+            component: tableDemo,
+            name: 'tableDemo',
+            meta: {
+                keepAlive: false, /* 用于在 <keep-alive> 中使用，判断是否需要进行缓存 */
+                bread: [
+                    {displayName: '案例', path: ''},
+                    {displayName: '表格案例', path: '/tableDemo'},
+                ]
+            }
+        },
+        {
+            path: '/blankDemo',
+            component: blankDemo,
+            name: 'blankDemo',
+            meta: {
+                keepAlive: false,
+                bread: [
                     {displayName: '一级菜单', path: ''},
-                    {displayName: '二级菜单', path: '/demo'},
+                    {displayName: '二级菜单', path: '/blankDemo'},
                 ]
             }
         },

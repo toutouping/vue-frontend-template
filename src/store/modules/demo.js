@@ -1,4 +1,4 @@
-import * as commonApi from '@/api/temp'
+import * as commonApi from '@/api/demo'
 
 const state = {
   isAdmin: '', // 管理员

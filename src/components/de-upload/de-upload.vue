@@ -26,7 +26,7 @@
       <span v-if="!isMultiple" style="vertical-align: top; line-height: 32px; font-size: 12px;">单次仅支持单个文件上传</span>
       <ul class="upload-list list--text">
         <!--- 已经上传至服务器的文件 -->
-        <li v-for="file in fileList":key="file.id" class="item is-success">
+        <li v-for="file in fileList" :key="file.id" class="item is-success">
           <a class="item-name" @click.prevent="downLoadAttrachment(file.id)">
             <i class="el-icon-document"></i>{{file.name}}
           </a>
@@ -36,7 +36,7 @@
           <i v-if="!readonly" class="el-icon-close" @click.prevent="removeFileFn(file)"></i>
         </li>
         <!--- 未上传至服务器的文件 -->
-        <li v-for="file in uploadList":key="file.id" class="item" :class="{'is-success': file.success, 'is-error': file.error}">
+        <li v-for="file in uploadList" :key="file.id" class="item" :class="{'is-success': file.success, 'is-error': file.error}">
           <a class="item-name">
             <i class="el-icon-document"></i>{{file.name}}
           </a>

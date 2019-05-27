@@ -48,17 +48,18 @@
 <style lang="scss">
 .app {
     .flex-content {
-        height: 100%;
         display: flex;
         .app-container {
             flex-grow: 1;
             padding: 20px 20px 0 20px;
-            height: calc(100% - 50px);
+            height: calc(100vh - 50px);
             background: #f0f2f5;
             float: left;
             overflow: hidden;
             .container {
                 height: calc(100% - 55px);
+                padding: 20px;
+                background: #ffffff;
                 width: 100%;
             }
         }

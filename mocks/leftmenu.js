@@ -10,8 +10,41 @@ module.exports = {
   'data': {
     'menus': [
       {
-        'id': 1,
-        'name': 'demo0',
+        'id': 0,
+        'name': '0',
+        'parent': null,
+        'display_name': '案例',
+        'is_menu': true,
+        'path': '',
+        'icon': 'edit',
+        'image_url': '',
+        'image_h_url': ''
+      },
+      {
+        'id': 11,
+        'name': '11',
+        'parent': 0,
+        'display_name': '表单案例',
+        'is_menu': true,
+        'path': '/formDemo',
+        'icon': 'edit',
+        'image_url': '',
+        'image_h_url': ''
+      },
+      {
+        'id': 12,
+        'name': '12',
+        'parent': 0,
+        'display_name': '表格案例',
+        'is_menu': true,
+        'path': '/tableDemo',
+        'icon': 'edit',
+        'image_url': '',
+        'image_h_url': ''
+      },
+      {
+        'id': 2,
+        'name': '2',
         'parent': null,
         'display_name': '一级菜单',
         'is_menu': true,
@@ -21,23 +54,18 @@ module.exports = {
         'image_h_url': ''
       },
       {
-        'id': 2,
-        'name': 'demo',
-        'parent': 1,
+        'id': 3,
+        'name': 'blankDemo',
+        'parent': 2,
         'display_name': '二级菜单',
         'is_menu': true,
-        'path': '/demo',
+        'path': '/blankDemo',
         'icon': 'edit',
         'image_url': '',
         'image_h_url': ''
       }
     ],
-    'permissions': [{
-        'codename': 'change_group',
-        'display_name': '编辑角色中的成员',
-        'id': 5,
-        'name': 'Can change group'
-      },
+    'permissions': [
       {
         'codename': 'delete_group',
         'display_name': '删除角色',
