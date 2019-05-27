@@ -6,6 +6,9 @@ const formDemo = () => import('@/pages/formDemo/formDemo.vue')
 const singlePageDemo = () => import('@/pages/singlePageDemo/singlePageDemo.vue')
 const blankDemo = () => import('@/pages/blankDemo/blankDemo.vue')
 const tableDemo = () => import('@/pages/tableDemo/tableDemo.vue')
+const customerForm = () => import('@/pages/customerFormDemo/index.vue')
+const previewForm = () => import('@/pages/customerFormDemo/preview.vue')
+const renderForm = () => import('@/pages/customerFormDemo/render.vue')
 
 Vue.use(Router);
 
@@ -14,6 +17,42 @@ let router = new Router({
         {
             path: '/',
             redirect: '/formDemo'
+        },
+        {
+            path: '/customerForm',
+            component: customerForm,
+            name: 'customerForm',
+            meta: {
+                keepAlive: false,
+                bread: [
+                    {displayName: '案例', path: ''},
+                    {displayName: '表单案例', path: '/formDemo'},
+                ]
+            }
+        },
+        {
+            path: '/previewForm',
+            component: previewForm,
+            name: 'previewForm',
+            meta: {
+                keepAlive: false,
+                bread: [
+                    {displayName: '案例', path: ''},
+                    {displayName: '表单案例', path: '/formDemo'},
+                ]
+            }
+        },
+        {
+            path: '/renderForm',
+            component: renderForm,
+            name: 'renderForm',
+            meta: {
+                keepAlive: false,
+                bread: [
+                    {displayName: '案例', path: ''},
+                    {displayName: '表单案例', path: '/formDemo'},
+                ]
+            }
         },
         {
             path: '/singlePageDemo',
@@ -28,7 +67,7 @@ let router = new Router({
             component: formDemo,
             name: 'formDemo',
             meta: {
-                keepAlive: false, /* 用于在 <keep-alive> 中使用，判断是否需要进行缓存 */
+                keepAlive: false,
                 bread: [
                     {displayName: '案例', path: ''},
                     {displayName: '表单案例', path: '/formDemo'},

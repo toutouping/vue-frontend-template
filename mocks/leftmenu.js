@@ -43,6 +43,39 @@ module.exports = {
         'image_h_url': ''
       },
       {
+        'id': 13,
+        'name': '13',
+        'parent': 0,
+        'display_name': '自定义表单',
+        'is_menu': true,
+        'path': '/customerForm',
+        'icon': 'edit',
+        'image_url': '',
+        'image_h_url': ''
+      },
+      {
+        'id': 14,
+        'name': '14',
+        'parent': 0,
+        'display_name': '预览表单',
+        'is_menu': true,
+        'path': '/previewForm',
+        'icon': 'edit',
+        'image_url': '',
+        'image_h_url': ''
+      },
+      {
+        'id': 15,
+        'name': '15',
+        'parent': 0,
+        'display_name': '表单渲染',
+        'is_menu': true,
+        'path': '/renderForm',
+        'icon': 'edit',
+        'image_url': '',
+        'image_h_url': ''
+      },
+      {
         'id': 2,
         'name': '2',
         'parent': null,

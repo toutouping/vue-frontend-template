@@ -17,9 +17,14 @@
     "@fortawesome/free-solid-svg-icons": "^5.8.0",
     "@fortawesome/vue-fontawesome": "^0.1.6",
     "axios": "^0.16.2",
+    "cascader-multi": "^2.0.3",
     "element-ui": "^2.8.2",
+    "iview": "^3.4.2",
+    "iview-area": "^1.6.0",
+    "moment": "^2.24.0",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
+    "vuedraggable": "^2.21.0",
     "vuex": "^2.5.0"
   },
   "devDependencies": {
