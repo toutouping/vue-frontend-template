@@ -299,7 +299,6 @@ export default {
     this.$http.get('/static/label.json').then(d => {
       this.dataDict = d.data.items;
     });
-    console.log(window);
     this.sortableItem = JSON.parse(localStorage.getItem('template_form') || '[]');
   }
 };

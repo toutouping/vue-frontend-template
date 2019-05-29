@@ -9,7 +9,7 @@
                 <app-left-menu></app-left-menu>
                 <div class="app-container" :style="isCollapse ? 'width: calc(100% - 230px)' : 'width: calc(100% - 230px)'">
                     <app-breadcrumb :to="$route.meta.bread"></app-breadcrumb>
-                    <div class="container">
+                    <div class="main-container">
                         <keep-alive><router-view v-if="$route.meta.keepAlive"></router-view></keep-alive>
                         <router-view v-if="!$route.meta.keepAlive"></router-view>
                     </div>
@@ -56,7 +56,7 @@
             background: #f0f2f5;
             float: left;
             overflow: hidden;
-            .container {
+            .main-container {
                 height: calc(100% - 55px);
                 padding: 20px;
                 background: #ffffff;
