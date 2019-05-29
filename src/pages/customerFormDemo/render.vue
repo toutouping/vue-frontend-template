@@ -5,7 +5,7 @@
     </renders>
     <FormItem>
       <Button type="primary" @click="handleSubmit('formValidate')">Submit</Button>
-      <Button type="ghost" @click="handleReset('formValidate')" style="margin-left: 8px">Reset</Button>
+      <Button type="default" @click="handleReset('formValidate')" style="margin-left: 8px">Reset</Button>
     </FormItem>
   </Form>
 </template>

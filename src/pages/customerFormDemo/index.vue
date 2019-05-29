@@ -5,7 +5,7 @@
         <Form :label-width="100" class="b-a">
           <draggable :clone="cloneData" :list="formList" :options="dragOptions1">
             <transition-group class="form-list-group" type="transition" :name="'flip-list'" tag="div">
-              <renders v-for="(element, index) in formList" :index="index" :key="element.ele" :ele="element.ele" :obj="element.obj || {}"></renders>
+              <renders v-for="(element, index) in formList" :index="index" :key="element.ele + index" :ele="element.ele" :obj="element.obj || {}"></renders>
             </transition-group>
           </draggable>
         </Form>
@@ -16,7 +16,7 @@
           <draggable :list="sortableItem" :options="dragOptions2">
             <transition-group class="form-list-group" type="transition" :name="'flip-list'" tag="div">
               <renders @handleRemoveEle="removeEle" @handleConfEle="confEle" @changeVisibility="changeVisibility"
-                v-for="(element, index) in sortableItem" :index="index" :key="element.ele" :ele="element.ele" :obj="element.obj || {}" :data="formData" @handleChangeVal="val => handleChangeVal(val,element)" :sortableItem="sortableItem" :config-icon="true">
+                v-for="(element, index) in sortableItem" :index="index" :key="element.ele + index" :ele="element.ele" :obj="element.obj || {}" :data="formData" @handleChangeVal="val => handleChangeVal(val,element)" :sortableItem="sortableItem" :config-icon="true">
               </renders>
             </transition-group>
           </draggable>
@@ -152,11 +152,11 @@ export default {
       const obj = JSON.parse(val);
       // 数据加载中，禁止modal_submit提交按钮
       this.$set(this.modalFormData, 'loading', true);
-      this.$http.get(`/static/label.${obj.id}.json`).then(d => {
+      this.$http.get(`../static/json/label.${obj.id}.json`).then(d => {
         this.modalFormData = Object.assign({}, this.modalFormData, {
-          name: d.data.name,
+          name: d.name,
           loading: false,
-          items: d.data.items,
+          items: d.items,
           parent_name: obj.parent_name
         });
       });
@@ -297,7 +297,7 @@ export default {
   },
   created() {
     // /static/label.json
-    this.$http.get('../static/label.json').then(d => {
+    this.$http.get('../static/json/label.json').then(d => {
       this.dataDict = d.items;
     });
     this.sortableItem = JSON.parse(localStorage.getItem('templateForm') || '[]');

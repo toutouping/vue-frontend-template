@@ -61,6 +61,8 @@
                 padding: 20px;
                 background: #ffffff;
                 width: 100%;
+                overflow-x: hidden;
+                overflow-y: auto;
             }
         }
     }
