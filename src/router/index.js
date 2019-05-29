@@ -9,6 +9,7 @@ const tableDemo = () => import('@/pages/tableDemo/tableDemo.vue')
 const customerForm = () => import('@/pages/customerFormDemo/index.vue')
 const previewForm = () => import('@/pages/customerFormDemo/preview.vue')
 const renderForm = () => import('@/pages/customerFormDemo/render.vue')
+const seqFlow = () => import('@/pages/seqFlow/seqFlow.vue')
 
 Vue.use(Router);
 
@@ -51,6 +52,18 @@ let router = new Router({
                 bread: [
                     {displayName: '案例', path: ''},
                     {displayName: '表单渲染案例', path: '/formDemo'},
+                ]
+            }
+        },
+        {
+            path: '/seqFlow',
+            component: seqFlow,
+            name: 'seqFlow',
+            meta: {
+                keepAlive: false,
+                bread: [
+                    {displayName: '案例', path: ''},
+                    {displayName: '流程案例', path: '/seqFlow'},
                 ]
             }
         },

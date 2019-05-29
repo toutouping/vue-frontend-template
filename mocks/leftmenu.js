@@ -76,6 +76,17 @@ module.exports = {
         'image_h_url': ''
       },
       {
+        'id': 16,
+        'name': '16',
+        'parent': 0,
+        'display_name': '顺序流程图',
+        'is_menu': true,
+        'path': '/seqFlow',
+        'icon': 'edit',
+        'image_url': '',
+        'image_h_url': ''
+      },
+      {
         'id': 2,
         'name': '2',
         'parent': null,

@@ -19,6 +19,8 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import vPermission from '@/directive/permissions/permission'
 import customForm from '@/components/customForm';
 
+// import $ from 'jquery';
+
 Vue.config.productionTip = false;
 Vue.use(ElementUI, { size: 'small' });
 Vue.use(vPermission);

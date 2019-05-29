@@ -37,6 +37,7 @@ module.exports = {
       'vue$': 'vue/dist/vue.esm.js',
 			'src': path.resolve(__dirname, '../src'),
       '@': resolve('src'),
+      'jQuery': path.resolve(__dirname, '../node_modules/jquery/src/jquery'),
     }
   },
   module: {
