@@ -1,11 +1,11 @@
 <template>
   <div class="container">
-    <i-row>
+    <Row>
       <i-col span="12" class="sortable_container">
         <Form :label-width="100" class="b-a">
           <draggable :clone="cloneData" :list="formList" :options="dragOptions1">
             <transition-group class="form-list-group" type="transition" :name="'flip-list'" tag="div">
-              <renders v-for="element in formList" :key="element" :ele="element.ele" :obj="element.obj || {}"></renders>
+              <renders v-for="(element, index) in formList" :index="index" :key="element.ele" :ele="element.ele" :obj="element.obj || {}"></renders>
             </transition-group>
           </draggable>
         </Form>
@@ -15,13 +15,14 @@
           <Alert style="margin: 15px 15px 0;" type="warning" show-icon>未绑定数据字典控件无效</Alert>
           <draggable :list="sortableItem" :options="dragOptions2">
             <transition-group class="form-list-group" type="transition" :name="'flip-list'" tag="div">
-              <renders @handleRemoveEle="removeEle" @handleConfEle="confEle" @changeVisibility="changeVisibility" v-for="element in sortableItem" :key="element.ele" :index="index" :ele="element.ele" :obj="element.obj || {}" :data="formData" @handleChangeVal="val => handleChangeVal(val,element)" :sortableItem="sortableItem" :config-icon="true">
+              <renders @handleRemoveEle="removeEle" @handleConfEle="confEle" @changeVisibility="changeVisibility"
+                v-for="(element, index) in sortableItem" :index="index" :key="element.ele" :ele="element.ele" :obj="element.obj || {}" :data="formData" @handleChangeVal="val => handleChangeVal(val,element)" :sortableItem="sortableItem" :config-icon="true">
               </renders>
             </transition-group>
           </draggable>
           <FormItem>
             <Button type="primary" @click="handleSubmit()">Submit</Button>
-            <Button type="ghost" @click="handleReset()" style="margin-left: 8px">Reset</Button>
+            <Button type="default" @click="handleReset()" style="margin-left: 8px">Reset</Button>
           </FormItem>
         </Form>
       </i-col>
@@ -46,7 +47,7 @@
           </FormItem>
           <FormItem label="关联配置：" v-if="typeof modalFormData.relation != 'undefined' && modalFormData.relation">
             <Select v-model="modalFormData.relation_name" class="inline-block" style="width: 150px" @on-change="_=>modalFormData.relation_value = ''">
-              <Option :disabled="item.obj.name == modalFormData.name" v-for="item in relationList" :key="item.obj.name" :value="item.obj.name">{{item.obj.label}}</Option>
+              <Option :disabled="item.obj.name == modalFormData.name" v-for="(item,index) in relationList" :key="index" :value="item.obj.name">{{item.obj.label}}</Option>
             </Select>
             <p class="inline-block padder-sm">等于</p>
             <Select v-model="modalFormData.relation_value" class="inline-block" style="width: 150px">
@@ -108,7 +109,7 @@
           <Button type="primary" :loading="modalFormData.loading" @click="handleOk">确定</Button>
         </div>
       </Modal>
-    </i-row>
+    </Row>
   </div>
 </template>
 <script>
@@ -136,7 +137,7 @@ export default {
   methods: {
     // 克隆表单提交事件
     handleSubmit() {
-      localStorage.setItem('template_form', JSON.stringify(this.sortableItem.filter(v => {
+      localStorage.setItem('templateForm', JSON.stringify(this.sortableItem.filter(v => {
         return !!v.obj.name
       })));
       this.$router.push('/render');
@@ -296,10 +297,10 @@ export default {
   },
   created() {
     // /static/label.json
-    this.$http.get('/static/label.json').then(d => {
-      this.dataDict = d.data.items;
+    this.$http.get('../static/label.json').then(d => {
+      this.dataDict = d.items;
     });
-    this.sortableItem = JSON.parse(localStorage.getItem('template_form') || '[]');
+    this.sortableItem = JSON.parse(localStorage.getItem('templateForm') || '[]');
   }
 };
 </script>

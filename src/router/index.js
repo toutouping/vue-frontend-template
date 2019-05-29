@@ -26,7 +26,7 @@ let router = new Router({
                 keepAlive: false,
                 bread: [
                     {displayName: '案例', path: ''},
-                    {displayName: '表单案例', path: '/formDemo'},
+                    {displayName: '自定义表单案例', path: '/formDemo'},
                 ]
             }
         },
@@ -38,7 +38,7 @@ let router = new Router({
                 keepAlive: false,
                 bread: [
                     {displayName: '案例', path: ''},
-                    {displayName: '表单案例', path: '/formDemo'},
+                    {displayName: '自定义预览案例', path: '/formDemo'},
                 ]
             }
         },
@@ -50,7 +50,7 @@ let router = new Router({
                 keepAlive: false,
                 bread: [
                     {displayName: '案例', path: ''},
-                    {displayName: '表单案例', path: '/formDemo'},
+                    {displayName: '表单渲染案例', path: '/formDemo'},
                 ]
             }
         },
