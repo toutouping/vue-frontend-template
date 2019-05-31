@@ -1,4 +1,4 @@
-import temp from 'api/temp';
+import demo from '@/api/demo';
 
 export default {
   data () {
@@ -44,7 +44,7 @@ export default {
     _getTreeList () { // 获取室组
       let ths = this;
 
-      temp.getOrgList().then((res) => {
+      demo.getOrgList().then((res) => {
         if (res.ReturnCode === 1 && res.Data) {
           ths.treeList = [res.Data];
         }
@@ -58,7 +58,7 @@ export default {
       let ths = this;
 
       ths.isPageLoading = true;
-      temp.getUserListByOrgId({orgId: orgId}).then((res) => {
+      demo.getUserListByOrgId({orgId: orgId}).then((res) => {
         if (res.ReturnCode === 1 && res.Data && res.Data.length > 0) {
           let result = [];
           let resData = res.Data || [];

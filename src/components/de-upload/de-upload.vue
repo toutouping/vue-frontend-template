@@ -62,4 +62,4 @@
   };
 </script>
 
-<style lang="stylus" src="./de-upload.styl" scoped></style>
+<style lang="scss" src="./de-upload.scss" scoped></style>

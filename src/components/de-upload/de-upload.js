@@ -1,6 +1,6 @@
 import VueUploadComponent from 'vue-upload-component';
-import download from 'api/download.js';
-import {IEVersion} from 'common/js/util.js';
+import { exportAttachment } from '@/api/download.js';
+import { IEVersion } from '@/common/js/util.js';
 
 export default {
   data () {
@@ -47,7 +47,7 @@ export default {
       let ths = this;
 
       ths.isPageLoading = true;
-      download.exportAttachment(itemId).then((res) => {
+      exportAttachment(itemId).then((res) => {
         if (res.ReturnCode === 0) {
           ths.$message.error({
             message: res.Message || '系统错误',
@@ -137,7 +137,7 @@ export default {
         cancelButtonText: '取消',
         type: 'warning'
       }).then(() => {
-        download.deleteAttachment({itemid: file.id}).then((res) => {
+        exportAttachment({itemid: file.id}).then((res) => {
           if (res && res.ReturnCode === 1) {
             ths.$message.success('文件删除成功。');
             ths.fileList.splice(index, 1);

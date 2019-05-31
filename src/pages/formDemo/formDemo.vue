@@ -10,6 +10,17 @@
           <el-option label="区域二" value="beijing"></el-option>
         </el-select>
       </el-form-item>
+      <el-form-item label="附件" style="relative">
+         <!-- 使用方式： this.$refs.deUpload.uploadFn -->
+         <!-- uploadFinishFn(response) -->
+         <!-- uploadErrorFn(response) -->
+        <de-upload ref="deUpload"
+          action-url="api/meeting/AddOrUpdateMeeting"
+          :upload-param="uploadParam"
+          :file-list="fileList"
+          @upload-finish="uploadFinishFn"
+          @upload-error="uploadErrorFn"></de-upload>
+      </el-form-item>
       <el-form-item label="活动时间" required>
         <el-col :span="11">
           <el-form-item prop="date1">
@@ -48,18 +59,25 @@
       <div class="item-list">
         <div v-for="(item, index) in appForm.itemList" :key="index" class="item">
           <el-form-item :prop="'itemList.' + index + '.a'" :rules='formRules.a'>
-            <el-input v-model="appForm.a"></el-input>
+            <el-input v-model="item.a"></el-input>
           </el-form-item>
           <el-form-item :prop="'itemList.' + index + '.b'" :rules='formRules.b'>
-            <el-input v-model="appForm.b"></el-input>
+            <el-input v-model="item.b"></el-input>
           </el-form-item>
         </div>
       </div>
       <el-form-item>
         <el-button type="primary" @click="submitForm('appForm')">立即创建</el-button>
         <el-button @click="resetForm('appForm')">重置</el-button>
+        <el-button @click="openDialogFn">弹框示例</el-button>
+
       </el-form-item>
     </el-form>
+    <duty-dialog
+      :show-select-duty="showSelectDuty"
+      :tree-duty-list="treeDutyList" :tree-select-list="treeSelectList"
+      @dialog-confirm="dialogConfirm"
+      @dialog-cancel="dialogCancel"></duty-dialog>
   </div>
 </template>
 

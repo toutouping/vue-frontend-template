@@ -1,10 +1,10 @@
 <template>
     <div class="select-duty-dialog">
-        <el-dialog 
+        <el-dialog
             :close-on-click-modal="false"
             :show-close="false"
-            title="选择负责人" 
-            :visible.sync="showSelectDuty" 
+            title="选择负责人"
+            :visible.sync="showSelectDuty"
             width="500">
             <div class="tree-content">
                 <el-input v-model="filterName" v-if="showFilterName" size="mini" placeholder="请输入责任人进行过滤"></el-input>
@@ -12,7 +12,7 @@
                     @node-click="handleNodeFn"></el-tree>
             </div>
             <div class="person-list" v-loading="isPageLoading">
-                <el-transfer v-model="selectList" 
+                <el-transfer v-model="selectList"
                     :data="dutyList"
                     :titles="['待选责任人', '已选责任人']"></el-transfer>
             </div>
@@ -31,12 +31,12 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" >
 .select-duty-dialog {
     width: 100px;
-    & >>> .el-dialog{
+    .el-dialog{
     width: 735px;
-    .el-dialog__body {    
+    .el-dialog__body {
         padding: 20px 20px 10px 20px;
         height: 434px;
         display: flex;

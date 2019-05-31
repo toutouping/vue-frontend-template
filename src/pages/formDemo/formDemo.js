@@ -1,7 +1,10 @@
+import deUpload from '@/components/de-upload/de-upload.vue';
+import dutyDialog from '@/components/duty-dialog/duty-dialog.vue';
+
 export default {
   data() {
     return {
-      appForm: {
+      appForm: { // 表单字段内容
         name: '',
         region: '',
         date1: '',
@@ -15,7 +18,12 @@ export default {
           b: ''
         }]
       },
-      formRules: {}
+      fileList: [], // 已上传的附件列表
+      showSelectDuty: false, // 树形级联多选框
+      treeDutyList: [], // 树形级联多选框
+      treeSelectList: [], // 树形级联多选框
+      formRules: {}, // 表单校验规则
+      uploadParam: {} // 上传时携带参数 赋值时使用 this.uploadParam = Object.assign({}, this.uploadParam, param);
     };
   },
   created() {
@@ -67,6 +75,27 @@ export default {
           { required: true, message: '请填写b', trigger: 'blur' }
         ]
       }
+    },
+    uploadFinishFn (response) { // 上传成功
+      console.log(response);
+    },
+    uploadErrorFn (response) { // 上传失败
+      console.log(response);
+    },
+    openDialogFn () { // 树形级联多选框
+      this.showSelectDuty = true;
+      console.log('openDialogFn');
+    },
+    dialogConfirm (list) { // 树形级联多选框
+      console.log(list);
+    },
+    dialogCancel () { // 树形级联多选框
+      console.log('dialogCancel');
+      this.showSelectDuty = false;
     }
+  },
+  components: {
+    deUpload,
+    dutyDialog
   }
 }

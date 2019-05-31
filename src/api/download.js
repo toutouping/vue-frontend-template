@@ -64,4 +64,3 @@ export const exportAttachment = params => {
 
   return exportCommon(parseObj, 'application/vnd.openxmlformats-officedocument.wordprocessingml.document');
 };
-
