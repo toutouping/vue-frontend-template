@@ -9,6 +9,7 @@ const tableDemo = () => import('@/pages/tableDemo/tableDemo.vue')
 const customerForm = () => import('@/pages/customerFormDemo/index.vue')
 const previewForm = () => import('@/pages/customerFormDemo/preview.vue')
 const renderForm = () => import('@/pages/customerFormDemo/render.vue')
+const customerForm2 = () => import('@/pages/customerFormDemo2/customerFormDemo2.vue')
 const seqFlow = () => import('@/pages/seqFlow/seqFlow.vue')
 
 Vue.use(Router);
@@ -18,6 +19,18 @@ let router = new Router({
         {
             path: '/',
             redirect: '/formDemo'
+        },
+        {
+            path: '/customerForm2',
+            component: customerForm2,
+            name: 'customerForm2',
+            meta: {
+                keepAlive: false,
+                bread: [
+                    {displayName: '案例', path: ''},
+                    {displayName: '自定义表单案例2', path: '/customerForm2'},
+                ]
+            }
         },
         {
             path: '/customerForm',
@@ -39,7 +52,7 @@ let router = new Router({
                 keepAlive: false,
                 bread: [
                     {displayName: '案例', path: ''},
-                    {displayName: '自定义预览案例', path: '/formDemo'},
+                    {displayName: '自定义预览案例1', path: '/formDemo'},
                 ]
             }
         },
@@ -51,7 +64,7 @@ let router = new Router({
                 keepAlive: false,
                 bread: [
                     {displayName: '案例', path: ''},
-                    {displayName: '表单渲染案例', path: '/formDemo'},
+                    {displayName: '表单渲染案例1', path: '/formDemo'},
                 ]
             }
         },

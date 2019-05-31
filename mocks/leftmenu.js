@@ -21,8 +21,8 @@ module.exports = {
         'image_h_url': ''
       },
       {
-        'id': 11,
-        'name': '11',
+        'id': '1-1',
+        'name': '1-1',
         'parent': 0,
         'display_name': '表单案例',
         'is_menu': true,
@@ -32,8 +32,8 @@ module.exports = {
         'image_h_url': ''
       },
       {
-        'id': 12,
-        'name': '12',
+        'id': '1-2',
+        'name': '1-2',
         'parent': 0,
         'display_name': '表格案例',
         'is_menu': true,
@@ -43,10 +43,10 @@ module.exports = {
         'image_h_url': ''
       },
       {
-        'id': 13,
-        'name': '13',
+        'id': '1-3',
+        'name': '1-3',
         'parent': 0,
-        'display_name': '自定义表单',
+        'display_name': '自定义表单1',
         'is_menu': true,
         'path': '/customerForm',
         'icon': 'edit',
@@ -54,10 +54,21 @@ module.exports = {
         'image_h_url': ''
       },
       {
-        'id': 14,
-        'name': '14',
+        'id': '1-3-1',
+        'name': '1-3-1',
         'parent': 0,
-        'display_name': '预览表单',
+        'display_name': '自定义表单2',
+        'is_menu': true,
+        'path': '/customerForm2',
+        'icon': 'edit',
+        'image_url': '',
+        'image_h_url': ''
+      },
+      {
+        'id': '1-4',
+        'name': '1-4',
+        'parent': 0,
+        'display_name': '预览表单1',
         'is_menu': true,
         'path': '/previewForm',
         'icon': 'edit',
@@ -65,10 +76,10 @@ module.exports = {
         'image_h_url': ''
       },
       {
-        'id': 15,
-        'name': '15',
+        'id': '1-5',
+        'name': '1-5',
         'parent': 0,
-        'display_name': '表单渲染',
+        'display_name': '表单渲染1',
         'is_menu': true,
         'path': '/renderForm',
         'icon': 'edit',
@@ -76,8 +87,8 @@ module.exports = {
         'image_h_url': ''
       },
       {
-        'id': 16,
-        'name': '16',
+        'id': '1-6',
+        'name': '1-6',
         'parent': 0,
         'display_name': '顺序流程图',
         'is_menu': true,
@@ -98,8 +109,8 @@ module.exports = {
         'image_h_url': ''
       },
       {
-        'id': 3,
-        'name': 'blankDemo',
+        'id': '2-1',
+        'name': '2-1',
         'parent': 2,
         'display_name': '二级菜单',
         'is_menu': true,
