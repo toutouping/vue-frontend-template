@@ -1,0 +1,606 @@
+{
+  "id": "5cf2951c38934c000cf5f528",
+  "tenantId": "2a51135352a343dab7b1a65ba95bd5dc",
+  "classCode": "OSCluster",
+  "attrTemplateIds": null,
+  "builtin": true,
+  "form": [
+    {
+      "id": "T_Resource",
+      "tenantId": null,
+      "code": "T_Resource",
+      "name": "基本信息",
+      "builtin": false,
+      "type": "groupLine",
+      "params": null,
+      "defaultValue": null,
+      "unit": null,
+      "required": false,
+      "keyAttr": false,
+      "manage": false,
+      "readOnly": false,
+      "deletable": true,
+      "interfaceNames": null,
+      "tagTransformable": null
+    },
+    {
+      "id": "5cf28bf377bf87001ad815f5",
+      "tenantId": "2a51135352a343dab7b1a65ba95bd5dc",
+      "code": "name",
+      "name": "名称",
+      "builtin": true,
+      "type": "singleRowText",
+      "params": {
+        "minLength": 1,
+        "maxLength": 200,
+        "validation": "IP"
+      },
+      "defaultValue": null,
+      "unit": null,
+      "required": false,
+      "keyAttr": true,
+      "manage": true,
+      "readOnly": false,
+      "deletable": false,
+      "interfaceNames": null,
+      "tagTransformable": null
+    },
+    {
+      "id": "5cf28bf377bf87001ad81592",
+      "tenantId": "2a51135352a343dab7b1a65ba95bd5dc",
+      "code": "ip",
+      "name": "IP地址",
+      "builtin": true,
+      "type": "singleRowText",
+      "params": {
+        "minLength": 0,
+        "maxLength": 100,
+        "validation": "IP"
+      },
+      "defaultValue": null,
+      "unit": null,
+      "required": false,
+      "keyAttr": false,
+      "manage": true,
+      "readOnly": false,
+      "deletable": false,
+      "interfaceNames": null,
+      "tagTransformable": null
+    },
+    {
+      "id": "5cf28bf377bf87001ad81539",
+      "tenantId": "2a51135352a343dab7b1a65ba95bd5dc",
+      "code": "desc",
+      "name": "描述",
+      "builtin": true,
+      "type": "singleRowText",
+      "params": {
+        "minLength": 0,
+        "maxLength": 500
+      },
+      "defaultValue": null,
+      "unit": null,
+      "required": false,
+      "keyAttr": false,
+      "manage": true,
+      "readOnly": false,
+      "deletable": false,
+      "interfaceNames": null,
+      "tagTransformable": null
+    },
+    {
+      "id": "5cf2945277bf87001ad818e8",
+      "tenantId": "2a51135352a343dab7b1a65ba95bd5dc",
+      "code": "add",
+      "name": "小数",
+      "builtin": false,
+      "type": "double",
+      "params": {
+        "precision": 2,
+        "min": 0,
+        "max": 200
+      },
+      "defaultValue": "as",
+      "unit": "个",
+      "required": true,
+      "keyAttr": false,
+      "manage": true,
+      "readOnly": false,
+      "deletable": false,
+      "interfaceNames": null,
+      "tagTransformable": null
+    },
+    {
+      "id": "5cf2945277bf87001ad818ec",
+      "tenantId": "2a51135352a343dab7b1a65ba95bd5dc",
+      "code": "aaa",
+      "name": "下拉菜单",
+      "builtin": false,
+      "type": "listSel",
+      "params": {
+        "color": true,
+        "options": [
+          {
+            "default": true,
+            "name": "a",
+            "isNew": true,
+            "color": "#008ed2",
+            "code": "a"
+          },
+          {
+            "default": false,
+            "name": "b",
+            "isNew": true,
+            "color": "#66bb6a",
+            "code": "b"
+          },
+          {
+            "default": false,
+            "name": "c",
+            "isNew": true,
+            "color": "#ef5350",
+            "code": "c"
+          }
+        ]
+      },
+      "defaultValue": null,
+      "unit": null,
+      "required": true,
+      "keyAttr": false,
+      "manage": true,
+      "readOnly": false,
+      "deletable": false,
+      "interfaceNames": null,
+      "tagTransformable": null
+    },
+    {
+      "id": "5cf2945277bf87001ad818e6",
+      "tenantId": "2a51135352a343dab7b1a65ba95bd5dc",
+      "code": "fggggrg",
+      "name": "引用",
+      "builtin": false,
+      "type": "reference",
+      "params": {
+        "refClassCode": "Business"
+      },
+      "defaultValue": null,
+      "unit": null,
+      "required": true,
+      "keyAttr": false,
+      "manage": true,
+      "readOnly": false,
+      "deletable": false,
+      "interfaceNames": null,
+      "tagTransformable": null
+    },
+    {
+      "id": "5cf2945277bf87001ad818e0",
+      "tenantId": "2a51135352a343dab7b1a65ba95bd5dc",
+      "code": "ccc",
+      "name": "多选",
+      "builtin": false,
+      "type": "multiSel",
+      "params": {
+        "color": true,
+        "options": [
+          {
+            "default": true,
+            "name": "a",
+            "isNew": true,
+            "color": "#008ed2",
+            "code": "a"
+          },
+          {
+            "default": false,
+            "name": "b",
+            "isNew": true,
+            "color": "#66bb6a",
+            "code": "b"
+          },
+          {
+            "default": false,
+            "name": "c",
+            "isNew": true,
+            "color": "#ef5350",
+            "code": "c"
+          }
+        ]
+      },
+      "defaultValue": null,
+      "unit": null,
+      "required": true,
+      "keyAttr": false,
+      "manage": true,
+      "readOnly": false,
+      "deletable": false,
+      "interfaceNames": null,
+      "tagTransformable": null
+    },
+    {
+      "id": "5cf2945277bf87001ad818df",
+      "tenantId": "2a51135352a343dab7b1a65ba95bd5dc",
+      "code": "bbb",
+      "name": "多行文本",
+      "builtin": false,
+      "type": "multiRowText",
+      "params": {
+        "minLength": 1,
+        "maxLength": 200
+      },
+      "defaultValue": "多行文本",
+      "unit": null,
+      "required": true,
+      "keyAttr": false,
+      "manage": true,
+      "readOnly": false,
+      "deletable": false,
+      "interfaceNames": null,
+      "tagTransformable": null
+    },
+    {
+      "id": "5cf2945277bf87001ad818eb",
+      "tenantId": "2a51135352a343dab7b1a65ba95bd5dc",
+      "code": "qerqwer",
+      "name": "级联选择",
+      "builtin": false,
+      "type": "cascader",
+      "params": {
+        "options": [
+          {
+            "name": "1",
+            "isNew": true,
+            "code": "1",
+            "children": [
+              {
+                "name": "11",
+                "isNew": true,
+                "code": "11",
+                "children": [
+                  {
+                    "name": "111",
+                    "isNew": true,
+                    "code": "111"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "2",
+            "isNew": true,
+            "code": "2"
+          },
+          {
+            "name": "3",
+            "isNew": true,
+            "code": "3"
+          }
+        ]
+      },
+      "defaultValue": null,
+      "unit": null,
+      "required": true,
+      "keyAttr": false,
+      "manage": true,
+      "readOnly": false,
+      "deletable": false,
+      "interfaceNames": null,
+      "tagTransformable": null
+    },
+    {
+      "id": "5cf2945277bf87001ad818e1",
+      "tenantId": "2a51135352a343dab7b1a65ba95bd5dc",
+      "code": "ddd",
+      "name": "单选",
+      "builtin": false,
+      "type": "singleSel",
+      "params": {
+        "color": true,
+        "options": [
+          {
+            "default": true,
+            "name": "a",
+            "isNew": true,
+            "color": "#008ed2",
+            "code": "a"
+          },
+          {
+            "default": false,
+            "name": "b",
+            "isNew": true,
+            "color": "#66bb6a",
+            "code": "b"
+          },
+          {
+            "default": false,
+            "name": "c",
+            "isNew": true,
+            "color": "ef5350",
+            "code": "c"
+          }
+        ]
+      },
+      "defaultValue": null,
+      "unit": null,
+      "required": true,
+      "keyAttr": false,
+      "manage": true,
+      "readOnly": false,
+      "deletable": false,
+      "interfaceNames": null,
+      "tagTransformable": null
+    },
+    {
+      "id": "5cf2945277bf87001ad818e9",
+      "tenantId": "2a51135352a343dab7b1a65ba95bd5dc",
+      "code": "hgg",
+      "name": "整数",
+      "builtin": false,
+      "type": "int",
+      "params": {
+        "min": 0,
+        "max": 200
+      },
+      "defaultValue": "1",
+      "unit": "a",
+      "required": false,
+      "keyAttr": false,
+      "manage": true,
+      "readOnly": false,
+      "deletable": false,
+      "interfaceNames": null,
+      "tagTransformable": null
+    },
+    {
+      "id": "5cf2945277bf87001ad818ef",
+      "tenantId": "2a51135352a343dab7b1a65ba95bd5dc",
+      "code": "werqwer",
+      "name": "编码",
+      "builtin": false,
+      "type": "expression",
+      "params": {
+        "expression": {
+          "separator": "_",
+          "variables": [
+            {
+              "type": "datetime",
+              "value": "1"
+            },
+            {
+              "type": "sequence",
+              "value": "3"
+            },
+            {
+              "type": "string",
+              "value": "qwer"
+            },
+            {
+              "type": "class",
+              "value": "className"
+            }
+          ]
+        }
+      },
+      "defaultValue": null,
+      "unit": null,
+      "required": false,
+      "keyAttr": false,
+      "manage": true,
+      "readOnly": false,
+      "deletable": false,
+      "interfaceNames": null,
+      "tagTransformable": null
+    },
+    {
+      "id": "5cf2945277bf87001ad818e3",
+      "tenantId": "2a51135352a343dab7b1a65ba95bd5dc",
+      "code": "asdasdf",
+      "name": "人员",
+      "builtin": false,
+      "type": "user",
+      "params": null,
+      "defaultValue": null,
+      "unit": null,
+      "required": true,
+      "keyAttr": false,
+      "manage": true,
+      "readOnly": false,
+      "deletable": false,
+      "interfaceNames": null,
+      "tagTransformable": null
+    },
+    {
+      "id": "5cf2945277bf87001ad818e7",
+      "tenantId": "2a51135352a343dab7b1a65ba95bd5dc",
+      "code": "asdfas",
+      "name": "附件",
+      "builtin": false,
+      "type": "file",
+      "params": {
+        "supportTextComparison": true
+      },
+      "defaultValue": null,
+      "unit": null,
+      "required": true,
+      "keyAttr": false,
+      "manage": true,
+      "readOnly": false,
+      "deletable": false,
+      "interfaceNames": null,
+      "tagTransformable": null
+    },
+    {
+      "id": "5cf2945277bf87001ad818ea",
+      "tenantId": "2a51135352a343dab7b1a65ba95bd5dc",
+      "code": "erqwreewr",
+      "name": "加密数据",
+      "builtin": false,
+      "type": "cipertext",
+      "params": {
+        "minLength": 6,
+        "maxLength": 20
+      },
+      "defaultValue": null,
+      "unit": null,
+      "required": true,
+      "keyAttr": false,
+      "manage": true,
+      "readOnly": false,
+      "deletable": false,
+      "interfaceNames": null,
+      "tagTransformable": null
+    },
+    {
+      "id": "5cf2945277bf87001ad818e5",
+      "tenantId": "2a51135352a343dab7b1a65ba95bd5dc",
+      "code": "afgsdfg",
+      "name": "表格",
+      "builtin": false,
+      "type": "table",
+      "params": {
+        "fields": [
+          {
+            "code": "a",
+            "name": "1"
+          },
+          {
+            "code": "b",
+            "name": "2"
+          },
+          {
+            "code": "c",
+            "name": "3"
+          },
+          {
+            "code": "d",
+            "name": "4"
+          }
+        ]
+      },
+      "defaultValue": null,
+      "unit": null,
+      "required": true,
+      "keyAttr": false,
+      "manage": true,
+      "readOnly": false,
+      "deletable": false,
+      "interfaceNames": null,
+      "tagTransformable": null
+    },
+    {
+      "id": "5cf2945277bf87001ad818e2",
+      "tenantId": "2a51135352a343dab7b1a65ba95bd5dc",
+      "code": "asdf",
+      "name": "图片",
+      "builtin": false,
+      "type": "image",
+      "params": null,
+      "defaultValue": null,
+      "unit": null,
+      "required": true,
+      "keyAttr": false,
+      "manage": true,
+      "readOnly": false,
+      "deletable": false,
+      "interfaceNames": null,
+      "tagTransformable": null
+    },
+    {
+      "id": "5cf2945277bf87001ad818ee",
+      "tenantId": "2a51135352a343dab7b1a65ba95bd5dc",
+      "code": "qwerqwer",
+      "name": "JSON",
+      "builtin": false,
+      "type": "jsontext",
+      "params": null,
+      "defaultValue": null,
+      "unit": null,
+      "required": true,
+      "keyAttr": false,
+      "manage": true,
+      "readOnly": false,
+      "deletable": false,
+      "interfaceNames": null,
+      "tagTransformable": null
+    },
+    {
+      "id": "5cf2945277bf87001ad818e4",
+      "tenantId": "2a51135352a343dab7b1a65ba95bd5dc",
+      "code": "vzxcv",
+      "name": "时间日期",
+      "builtin": false,
+      "type": "dateTime",
+      "params": {
+        "formatDate": true
+      },
+      "defaultValue": "2019-06-01 23:02:25",
+      "unit": null,
+      "required": true,
+      "keyAttr": false,
+      "manage": true,
+      "readOnly": false,
+      "deletable": false,
+      "interfaceNames": null,
+      "tagTransformable": null
+    },
+    {
+      "id": "5cf28bf377bf87001ad81520",
+      "tenantId": "2a51135352a343dab7b1a65ba95bd5dc",
+      "code": "createDate",
+      "name": "创建日期",
+      "builtin": true,
+      "type": "dateTime",
+      "params": {
+        "precision": 2,
+        "formatDate": true
+      },
+      "defaultValue": null,
+      "unit": null,
+      "required": false,
+      "keyAttr": false,
+      "manage": true,
+      "readOnly": false,
+      "deletable": false,
+      "interfaceNames": null,
+      "tagTransformable": null
+    },
+    {
+      "id": "5cf2945277bf87001ad818ed",
+      "tenantId": "2a51135352a343dab7b1a65ba95bd5dc",
+      "code": "full",
+      "name": "富文本",
+      "builtin": false,
+      "type": "richText",
+      "params": null,
+      "defaultValue": null,
+      "unit": null,
+      "required": true,
+      "keyAttr": false,
+      "manage": true,
+      "readOnly": false,
+      "deletable": false,
+      "interfaceNames": null,
+      "tagTransformable": null
+    }
+  ],
+  "key": {
+    "id": "5cf28ef977bf87001ad81888",
+    "builtin": false,
+    "resKeys": [
+      {
+        "resKeys": [
+          {
+            "type": "singleRowText",
+            "name": "名称",
+            "code": "name"
+          }
+        ],
+        "unmodifiable": true,
+        "sort": "1",
+        "keyCode": [
+          "name"
+        ]
+      }
+    ]
+  }
+}

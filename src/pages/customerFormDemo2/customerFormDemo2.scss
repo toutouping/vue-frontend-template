@@ -1,3 +1,61 @@
 .app-customer2-demo {
   background: #fff;
+  /deep/ .add-field-dialog {
+    width: 514px;
+    .el-dialog__body {
+      padding: 20px;
+    }
+    .el-dialog__header {
+      background: #f9f9f9;
+    }
+  }
+  /deep/ .add-field-form {
+    .el-form-item__label {
+      display: block;
+    }
+    .field-detail {
+      padding: 20px;
+      margin-bottom: 18px;
+      background: #f3f8ff;
+      .el-form-item__label {
+        display: inline-block;
+        width: 100px;
+      }
+      & > div:last-child {
+        .el-form-item {
+          margin-bottom: 0px;
+        }
+      }
+      .add-options {
+        .add-options-btn {
+          text-align: right;
+          button {
+            padding: 0 5px;
+            line-height: 24px;
+          }
+        }
+        .el-form-item__error {
+          position: absolute;
+          top: 8px;
+        }
+        .options {
+          display: flex;
+          margin-top: 5px;
+          .el-checkbox {
+            margin-right: 8px;
+            margin-top: 8px;
+          }
+          .el-input {
+            display: inline-block;
+            margin-right: 8px;
+            flex: 1;
+          }
+          button {
+            padding: 0 5px;
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
 }

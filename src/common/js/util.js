@@ -8,6 +8,9 @@ export function getLanguage () {
   return localStorage.getItem('web-language') || lang;
 }
 
+/**
+ * 获取IE版本
+ */
 export function IEVersion () {
   let userAgent = navigator.userAgent; // 取得浏览器的userAgent字符串
   let isIE = userAgent.indexOf('compatible') > -1 && userAgent.indexOf('MSIE') > -1; // 判断是否IE<11浏览器
@@ -39,4 +42,11 @@ export function IEVersion () {
   } else {
     return -1; // 不是ie浏览器
   }
+}
+
+/**
+ * 判断是否为函数
+ */
+export function isFunction(obj) {
+  return Object.prototype.toString.call(obj) === '[object Function]';
 }

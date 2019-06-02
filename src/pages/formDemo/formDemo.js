@@ -18,11 +18,11 @@ export default {
           b: ''
         }]
       },
+      formRules: {}, // 表单校验规则
       fileList: [], // 已上传的附件列表
       showSelectDuty: false, // 树形级联多选框
       treeDutyList: [], // 树形级联多选框
       treeSelectList: [], // 树形级联多选框
-      formRules: {}, // 表单校验规则
       uploadParam: {} // 上传时携带参数 赋值时使用 this.uploadParam = Object.assign({}, this.uploadParam, param);
     };
   },

@@ -69,7 +69,7 @@ module.exports = {
         'name': '1-4',
         'parent': 0,
         'display_name': '预览表单1',
-        'is_menu': true,
+        'is_menu': false,
         'path': '/previewForm',
         'icon': 'edit',
         'image_url': '',

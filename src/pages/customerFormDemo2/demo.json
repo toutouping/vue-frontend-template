@@ -1,0 +1,368 @@
+{
+  "id": "5cf28bf477bf87001ad8172e",
+  "name": "资源",
+  "code": "T_Resource",
+  "attributes": [
+    {
+      "readOnly": true,
+      "builtin": true,
+      "unit": null,
+      "manage": true,
+      "tenantId": "2a51135352a343dab7b1a65ba95bd5dc",
+      "params": {
+        "minLength": 1,
+        "maxLength": 200,
+        "validation": "IP"
+      },
+      "name": "单行文本",
+      "tagTransformable": true,
+      "code": "name",
+      "interfaceNames": null,
+      "keyAttr": false,
+      "defaultValue": null,
+      "deletable": false,
+      "type": "singleRowText",
+      "required": true
+    },
+    {
+      "readOnly": true,
+      "manage": true,
+      "params": {
+        "minLength": 1,
+        "maxLength": 200
+      },
+      "name": "多行文本",
+      "code": "bbb",
+      "defaultValue": "多行文本",
+      "type": "multiRowText",
+      "required": true
+    },
+    {
+      "readOnly": true,
+      "manage": true,
+      "params": {
+        "color": true,
+        "options": [
+          {
+            "default": true,
+            "name": "a",
+            "isNew": true,
+            "color": "#008ed2",
+            "code": "a"
+          },
+          {
+            "default": false,
+            "name": "b",
+            "isNew": true,
+            "color": "#66bb6a",
+            "code": "b"
+          },
+          {
+            "default": false,
+            "name": "c",
+            "isNew": true,
+            "color": "#ef5350",
+            "code": "c"
+          }
+        ]
+      },
+      "name": "多选",
+      "code": "ccc",
+      "type": "multiSel",
+      "required": true
+    },
+    {
+      "readOnly": true,
+      "manage": true,
+      "params": {
+        "color": true,
+        "options": [
+          {
+            "default": true,
+            "name": "a",
+            "isNew": true,
+            "color": "#008ed2",
+            "code": "a"
+          },
+          {
+            "default": false,
+            "name": "b",
+            "isNew": true,
+            "color": "#66bb6a",
+            "code": "b"
+          },
+          {
+            "default": false,
+            "name": "c",
+            "isNew": true,
+            "color": "ef5350",
+            "code": "c"
+          }
+        ]
+      },
+      "name": "单选",
+      "tagTransformable": true,
+      "code": "ddd",
+      "type": "singleSel",
+      "required": true
+    },
+    {
+      "manage": true,
+      "name": "图片",
+      "code": "asdf",
+      "type": "image",
+      "required": true
+    },
+    {
+      "readOnly": true,
+      "manage": true,
+      "name": "人员",
+      "code": "asdasdf",
+      "type": "user",
+      "required": true
+    },
+    {
+      "readOnly": true,
+      "manage": true,
+      "params": {
+        "formatDate": true
+      },
+      "name": "时间日期",
+      "code": "vzxcv",
+      "defaultValue": "2019-06-01 23:02:25",
+      "type": "dateTime",
+      "required": true
+    },
+    {
+      "readOnly": true,
+      "manage": true,
+      "params": {
+        "fields": [
+          {
+            "code": "a",
+            "name": "1"
+          },
+          {
+            "code": "b",
+            "name": "2"
+          },
+          {
+            "code": "c",
+            "name": "3"
+          },
+          {
+            "code": "d",
+            "name": "4"
+          }
+        ]
+      },
+      "name": "表格",
+      "code": "afgsdfg",
+      "type": "table",
+      "required": true
+    },
+    {
+      "readOnly": true,
+      "manage": true,
+      "params": {
+        "refClassCode": "Business"
+      },
+      "name": "引用",
+      "tagTransformable": true,
+      "code": "fggggrg",
+      "type": "reference",
+      "required": true
+    },
+    {
+      "manage": true,
+      "params": {
+        "supportTextComparison": true
+      },
+      "name": "附件",
+      "code": "asdfas",
+      "type": "file",
+      "required": true
+    },
+    {
+      "readOnly": true,
+      "unit": "个",
+      "manage": true,
+      "params": {
+        "precision": 2,
+        "min": 0,
+        "max": 200
+      },
+      "name": "小数",
+      "code": "add",
+      "defaultValue": "as",
+      "type": "double",
+      "required": true
+    },
+    {
+      "readOnly": false,
+      "builtin": true,
+      "unit": null,
+      "manage": true,
+      "tenantId": "2a51135352a343dab7b1a65ba95bd5dc",
+      "params": {
+        "precision": 2,
+        "formatDate": true
+      },
+      "name": "创建日期",
+      "tagTransformable": null,
+      "code": "createDate",
+      "interfaceNames": null,
+      "keyAttr": false,
+      "defaultValue": null,
+      "type": "dateTime",
+      "required": false
+    },
+    {
+      "readOnly": false,
+      "unit": "a",
+      "manage": true,
+      "params": {
+        "min": 0,
+        "max": 200
+      },
+      "name": "整数",
+      "code": "hgg",
+      "defaultValue": 1,
+      "type": "int",
+      "required": false
+    },
+    {
+      "readOnly": true,
+      "manage": true,
+      "params": {
+        "minLength": 6,
+        "maxLength": 20
+      },
+      "name": "加密数据",
+      "code": "erqwreewr",
+      "type": "cipertext",
+      "required": true
+    },
+    {
+      "readOnly": true,
+      "manage": true,
+      "params": {
+        "options": [
+          {
+            "name": "1",
+            "isNew": true,
+            "code": "1",
+            "children": [
+              {
+                "name": "11",
+                "isNew": true,
+                "code": "11",
+                "children": [
+                  {
+                    "name": "111",
+                    "isNew": true,
+                    "code": "111"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "2",
+            "isNew": true,
+            "code": "2"
+          },
+          {
+            "name": "3",
+            "isNew": true,
+            "code": "3"
+          }
+        ]
+      },
+      "name": "级联选择",
+      "code": "qerqwer",
+      "type": "cascader",
+      "required": true
+    },
+    {
+      "readOnly": true,
+      "manage": true,
+      "params": {
+        "color": true,
+        "options": [
+          {
+            "default": true,
+            "name": "a",
+            "isNew": true,
+            "color": "#008ed2",
+            "code": "a"
+          },
+          {
+            "default": false,
+            "name": "b",
+            "isNew": true,
+            "color": "#66bb6a",
+            "code": "b"
+          },
+          {
+            "default": false,
+            "name": "c",
+            "isNew": true,
+            "color": "#ef5350",
+            "code": "c"
+          }
+        ]
+      },
+      "name": "下拉菜单",
+      "tagTransformable": true,
+      "code": "aaa",
+      "type": "listSel",
+      "required": true
+    },
+    {
+      "readOnly": true,
+      "manage": true,
+      "name": "富文本",
+      "code": "full",
+      "type": "richText",
+      "required": true
+    },
+    {
+      "readOnly": true,
+      "manage": true,
+      "name": "JSON",
+      "code": "qwerqwer",
+      "type": "jsontext",
+      "required": true
+    },
+    {
+      "manage": true,
+      "params": {
+        "expression": {
+          "separator": "_",
+          "variables": [
+            {
+              "type": "datetime",
+              "value": "1"
+            },
+            {
+              "type": "sequence",
+              "value": "3"
+            },
+            {
+              "type": "string",
+              "value": "qwer"
+            },
+            {
+              "type": "class",
+              "value": "className"
+            }
+          ]
+        }
+      },
+      "name": "编码",
+      "code": "werqwer",
+      "type": "expression"
+    }
+  ]
+}
