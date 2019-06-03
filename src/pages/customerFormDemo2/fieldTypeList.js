@@ -10,6 +10,13 @@ export default {
         label: '',
         value: ''
       }
+    },
+    'radioOptions': () => {
+      return {
+        isDefault: false,
+        label: '',
+        value: ''
+      }
     }
   },
   typeList: [
@@ -26,7 +33,7 @@ export default {
     {
       type: 'singleSel',
       label: '单选',
-      paramList: []
+      paramList: ['radioOptions']
     },
     {
       type: 'multiSel',

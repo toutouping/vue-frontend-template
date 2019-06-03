@@ -90,6 +90,20 @@
                 <el-button @click="removeOptionsFn('checkBoxOptions', index)" type="text" icon="el-icon-delete"></el-button>
               </div>
             </div>
+            <!-- 单选选项 -->
+            <div v-if="item === 'radioOptions'" class="add-options">
+              <el-form-item label="选项" prop="params.radioOptions" :rules='formRules.radioOptions'>
+                <div class="add-options-btn">
+                  <el-button @click="addOptionsFn('radioOptions')" type="primary" icon="el-icon-plus">添加</el-button>
+                </div>
+              </el-form-item>
+              <div v-for="(option, index) in appForm.params.radioOptions" :key="index" class="options">
+                <el-checkbox v-model="option.isDefault" title="设为默认值"></el-checkbox>
+                <el-input v-model="option.label" :placeholder="'选项文本' + (index + 1)"></el-input>
+                <el-input v-model="option.value" :placeholder="'选项值' + (index + 1)"></el-input>
+                <el-button @click="removeOptionsFn('radioOptions', index)" type="text" icon="el-icon-delete"></el-button>
+              </div>
+            </div>
             <!--  -->
           </div>
         </div>

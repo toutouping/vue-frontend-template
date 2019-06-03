@@ -118,6 +118,24 @@ export default {
               'value': 'c'
             }]
           }
+        },
+        {
+          'displayValue': '单选',
+          'description': '单选单选单选',
+          'type': 'singleSel',
+          'validation': 'none',
+          'layout': '整行',
+          'params': {
+            'radioOptions': [{
+              'isDefault': true,
+              'label': 'a',
+              'value': 'a'
+            }, {
+              'isDefault': false,
+              'label': 'b',
+              'value': 'b'
+            }]
+          }
         }
       ]
 
@@ -140,6 +158,20 @@ export default {
           ths.$set(ths.renderForm, 'itemCode' + index, defaultValue);
           resultObj.itemCode = 'itemCode' + index;
           resultObj.checkBoxOptions = checkBoxOptions;
+          ths.formList.push(resultObj);
+        } else if (item.type === 'singleSel') { // 单选
+          let resultObj = {...item};
+          let radioOptions = params.radioOptions || [];
+          let defaultValue = '';
+
+          radioOptions.forEach(element => {
+            if (element.isDefault) {
+              defaultValue = element.value;
+            }
+          });
+          ths.$set(ths.renderForm, 'itemCode' + index, defaultValue);
+          resultObj.itemCode = 'itemCode' + index;
+          resultObj.radioOptions = radioOptions;
           ths.formList.push(resultObj);
         }
       });

@@ -28,6 +28,14 @@
               <el-checkbox v-for="(option, index) in formItem.checkBoxOptions" :key="index" :label="option.label"></el-checkbox>
             </el-checkbox-group>
         </el-form-item>
+        <!-- 单选 -->
+        <el-form-item v-if="formItem.type == 'singleSel'"
+          :label="formItem.displayValue"
+          :prop="formItem.itemCode">
+            <el-radio-group v-model="renderForm[formItem.itemCode]">
+              <el-radio  v-for="(option, index) in formItem.radioOptions" :key="index" :label="option.label"></el-radio>
+            </el-radio-group>
+        </el-form-item>
       </el-col>
     </el-form>
     <el-button type="primary" @click="confirmAddFieldFn">确 定</el-button>
