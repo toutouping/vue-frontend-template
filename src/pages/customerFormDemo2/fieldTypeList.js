@@ -16,7 +16,7 @@ export default {
     {
       type: 'singleRowText',
       label: '单行文本',
-      paramList: ['defaultValue', 'minLength', 'maxLength']
+      paramList: ['defaultValue', 'minLength', 'maxLength', 'validation']
     },
     {
       type: 'multiRowText',
@@ -24,18 +24,23 @@ export default {
       paramList: ['minLength', 'maxLength']
     },
     {
+      type: 'singleSel',
+      label: '单选',
+      paramList: []
+    },
+    {
       type: 'multiSel',
       label: '多选',
       paramList: ['checkBoxOptions']
     },
     {
-      type: 'cascader',
-      label: '级联选择',
+      type: 'listSel',
+      label: '下拉菜单',
       paramList: []
     },
     {
-      type: 'singleSel',
-      label: '单选',
+      type: 'cascader',
+      label: '级联选择',
       paramList: []
     },
     {

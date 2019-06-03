@@ -1,6 +1,6 @@
 const state = {
   // breadcrumbs: []
-  isCollapse: false // 左侧菜单是否收缩
+  isCollapse: true // 左侧菜单是否收缩
 }
 
 const getters = {

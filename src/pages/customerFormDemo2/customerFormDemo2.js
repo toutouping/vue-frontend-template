@@ -2,6 +2,8 @@ import validationOptions from './validationOptions.js'
 import fieldTypeList from './fieldTypeList.js'
 import {isFunction} from '@/common/js/util.js'
 
+import renderForm from './renderForm/renderForm.vue';
+
 export default {
   data() {
     return {
@@ -17,14 +19,15 @@ export default {
         description: '',
         type: fieldTypeList.defaultVal,
         validation: 'none',
-        layout: 'wholeLine',
+        layout: '整行',
         params: {
           'defaultValue': '',
           'minLength': '',
           'maxLength': ''
         }
       },
-      formRules: {}, // 表单校验规则
+      formRules: {}, // 表单校验规则,
+      renderFormData: {},
       showAddField: true,
       selectTypeObj: fieldTypeList.typeList[0] || {},
       fieldTypeList: fieldTypeList.typeList,
@@ -71,7 +74,7 @@ export default {
 
       ths.$refs['addFieldForm'].validate((valid) => {
         if (valid) {
-          console.log(ths.appForm);
+          console.log(JSON.stringify(ths.appForm));
           ths.tableList.push({...ths.appForm});
           ths.showAddField = false;
         } else {
@@ -163,11 +166,11 @@ export default {
         {
           prop: 'displayValue',
           label: '字段名',
-          width: '150'
+          width: '130'
         }, {
           prop: 'type',
           label: '字段类型',
-          width: '100'
+          width: '130'
         }, {
           prop: 'defaultValue',
           label: '默认值',
@@ -194,5 +197,8 @@ export default {
         }
       ]
     }
+  },
+  components: {
+    renderForm
   }
 }

@@ -50,3 +50,12 @@ export function IEVersion () {
 export function isFunction(obj) {
   return Object.prototype.toString.call(obj) === '[object Function]';
 }
+
+//判断字符是否为空的方法
+export function isEmpty(obj) {
+  if(typeof obj === 'undefined' || obj === null || obj === '' || obj.length === 0) {
+      return true;
+  }else{
+      return false;
+  }
+}

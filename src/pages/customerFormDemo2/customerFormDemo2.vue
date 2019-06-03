@@ -34,6 +34,9 @@
         :total="page.total">
       </el-pagination>
     </div>
+    <div class="render-content">
+      <render-form></render-form>
+    </div>
     <el-dialog title="新增字段" :visible.sync="showAddField" class="right-side-dialog"
       custom-class="add-field-dialog" top="0">
       <el-form :model="appForm" :rules="formRules"
@@ -54,15 +57,26 @@
         </el-form-item>
         <div v-if="selectTypeObj.paramList.length > 0" class="field-detail">
           <div v-for="(item) in selectTypeObj.paramList" :key="item">
+            <!-- 默认值 -->
             <el-form-item v-if="item == 'defaultValue'" label="默认值">
-              <el-input v-model="appForm.params.defaultValue" placeholder="请输入字段描述"></el-input>
+              <el-input v-model="appForm.params.defaultValue" placeholder="请输入默认值"></el-input>
             </el-form-item>
+            <!-- 最小长度 -->
             <el-form-item v-if="item == 'minLength'" label="最小长度">
               <el-input-number v-model="appForm.params.minLength" controls-position="right" :min="1"></el-input-number>
             </el-form-item>
+            <!-- 最大长度 -->
             <el-form-item v-if="item == 'maxLength'" label="最大长度">
               <el-input-number v-model="appForm.params.maxLength" controls-position="right" :min="1"></el-input-number>
             </el-form-item>
+            <!-- 校验方式 -->
+            <el-form-item v-if="item == 'validation'" label="校验方式">
+              <el-select multiple  v-model="appForm.params.validation" placeholder="请选择字段校验方式">
+                <el-option v-for="(item) in validationOptions" :key="item.name"
+                  :label="item.label" :value="item.name"></el-option>
+              </el-select>
+            </el-form-item>
+            <!-- 多选选项 -->
             <div v-if="item === 'checkBoxOptions'" class="add-options">
               <el-form-item label="选项" prop="params.checkBoxOptions" :rules='formRules.checkBoxOptions'>
                 <div class="add-options-btn">
@@ -76,14 +90,9 @@
                 <el-button @click="removeOptionsFn('checkBoxOptions', index)" type="text" icon="el-icon-delete"></el-button>
               </div>
             </div>
+            <!--  -->
           </div>
         </div>
-        <el-form-item label="校验方式">
-          <el-select v-model="appForm.validation" placeholder="请选择字段校验方式">
-            <el-option v-for="(item) in validationOptions" :key="item.name"
-              :label="item.label" :value="item.name"></el-option>
-          </el-select>
-        </el-form-item>
         <el-form-item label="布局方式" prop="layout">
           <el-select v-model="appForm.layout" placeholder="请选择字段类型">
             <el-option label="整行" value="整行"></el-option><!--wholeLine-->
