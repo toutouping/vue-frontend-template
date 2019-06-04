@@ -37,18 +37,14 @@
             </el-radio-group>
         </el-form-item>
         <!-- 下拉 -->
-        <el-form-item v-if="formItem.type == 'listSel'"
+        <el-form-item v-if="formItem.type == 'cascader'"
           :label="formItem.displayValue"
           :prop="formItem.itemCode">
-           <el-select v-model="renderForm[formItem.itemCode]"
-             :placeholder="formItem.displayValue">
-            <el-option
-              v-for="(option, index) in formItem.listSelOptions"
-              :key="index"
-              :label="option.label"
-              :value="option.value">
-            </el-option>
-          </el-select>
+           <el-cascader
+            :placeholder="formItem.displayValue"
+            :options="formItem.cascaderOptions"
+            v-model="renderForm[formItem.itemCode]">
+          </el-cascader>
         </el-form-item>
       </el-col>
     </el-form>

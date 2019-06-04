@@ -25,6 +25,28 @@ export default {
         value: ''
       }
     },
+    'cascaderOptions': (parentLevel) => {
+      if (parentLevel === 2) {
+        return {
+          'value': ''
+        }
+      } else if (parentLevel === 1) {
+        return {
+          'value': '',
+          'children': []
+        }
+      } else {
+        return {
+          'value': '',
+          'children': [{
+            'value': '',
+            'children': [{
+              'value': ''
+            }]
+          }]
+        }
+      }
+    },
   },
   typeList: [
     {
@@ -55,7 +77,7 @@ export default {
     {
       type: 'cascader',
       label: '级联选择',
-      paramList: []
+      paramList: ['cascaderOptions']
     },
     {
       type: 'image',

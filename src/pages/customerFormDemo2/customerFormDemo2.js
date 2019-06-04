@@ -159,6 +159,26 @@ export default {
               'value': 'b'
             }]
           }
+        },
+        {
+          'displayValue': '级联选择',
+          'description': '级联选择级联选择级联选择',
+          'type': 'cascader',
+          'validation': 'none',
+          'layout': '整行',
+          'params': {
+            'cascaderOptions': [{
+              'value': '1',
+              'children': [{
+                'value': '11',
+                'children': [{
+                  'value': '111a'
+                }, {
+                  'value': '111b'
+                }]
+              }]
+            }]
+          }
         }
       ]
     }
@@ -176,6 +196,20 @@ export default {
     },
     removeOptionsFn (key, index) {
       this.appForm.params[key].splice(index, 1);
+    },
+    addCascaderOptionsFn (currentOption, parentLevel) {
+      if (parentLevel === 1 || parentLevel === 2) {
+        currentOption.children.push(fieldTypeList.paramDefaultVal['cascaderOptions'](parentLevel));
+      } else {
+        currentOption.push(fieldTypeList.paramDefaultVal['cascaderOptions'](parentLevel));
+      }
+    },
+    removeCascaderOptionsFn (parentOption, currentLevel, currentIndex) {
+      if (currentLevel === 1) {
+        parentOption.splice(currentIndex, 1);
+      } else {
+        parentOption.children.splice(currentIndex, 1);
+      }
     },
     changTypeFn (current) {
       let ths = this;

@@ -84,6 +84,24 @@ export default {
           resultObj.itemCode = 'itemCode' + index;
           resultObj.listSelOptions = listSelOptions;
           ths.formList.push(resultObj);
+        } else if (item.type === 'cascader') { // 单选
+          let resultObj = {...item};
+          let cascaderOptions = params.cascaderOptions || [];
+          let defaultValue = [];
+
+          cascaderOptions.forEach(e1 => {
+            e1.label = e1.value;
+            e1.children.forEach(e2 => {
+              e2.label = e2.value;
+              e2.children.forEach(e3 => {
+                e3.label = e3.value;
+              });
+            });
+          });
+          ths.$set(ths.renderForm, 'itemCode' + index, defaultValue);
+          resultObj.itemCode = 'itemCode' + index;
+          resultObj.cascaderOptions = cascaderOptions;
+          ths.formList.push(resultObj);
         }
       });
     }

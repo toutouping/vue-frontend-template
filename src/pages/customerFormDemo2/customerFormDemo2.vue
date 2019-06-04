@@ -118,6 +118,31 @@
                 <el-button @click="removeOptionsFn('listSelOptions', index)" type="text" icon="el-icon-delete"></el-button>
               </div>
             </div>
+            <!-- 级联选项 -->
+            <div v-if="item === 'cascaderOptions'" class="add-options">
+              <el-form-item label="选项" prop="params.cascaderOptions" :rules='formRules.cascaderOptions'>
+                <div class="add-options-btn">
+                  <el-button @click="addCascaderOptionsFn(appForm.params.cascaderOptions, 0)" type="primary" icon="el-icon-plus">添加</el-button>
+                </div>
+              </el-form-item>
+              <div v-for="(option1, index1) in appForm.params.cascaderOptions" :key="index1" class="options options1">
+                <span class="pre">1</span>
+                <el-input v-model="option1.value" :placeholder="'一级选项'"></el-input>
+                <el-button @click="addCascaderOptionsFn(option1, 1)" type="primary" icon="el-icon-plus"></el-button>
+                <el-button @click="removeCascaderOptionsFn(appForm.params.cascaderOptions, 1, index1)" type="text" icon="el-icon-delete"></el-button>
+                <div v-for="(option2, index2) in option1.children" :key="index2" class="options options2">
+                  <span class="pre">2</span>
+                  <el-input v-model="option2.value" :placeholder="'二级选项'"></el-input>
+                  <el-button @click="addCascaderOptionsFn(option2, 2)" type="primary" icon="el-icon-plus"></el-button>
+                  <el-button @click="removeCascaderOptionsFn(option1, 2, index2)" type="text" icon="el-icon-delete"></el-button>
+                    <div v-for="(option3, index3) in option2.children" :key="index3" class="options options3">
+                      <span class="pre">3</span>
+                      <el-input v-model="option3.value" :placeholder="'三级选项'"></el-input>
+                      <el-button @click="removeCascaderOptionsFn(option2, 3, index3)" type="text" icon="el-icon-delete"></el-button>
+                    </div>
+                </div>
+              </div>
+            </div>
             <!--  -->
           </div>
         </div>
