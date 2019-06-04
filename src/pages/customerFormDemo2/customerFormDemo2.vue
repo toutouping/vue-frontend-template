@@ -35,7 +35,7 @@
       </el-pagination>
     </div>
     <div class="render-content">
-      <render-form></render-form>
+      <render-form :render-list="renderList"></render-form>
     </div>
     <el-dialog title="新增字段" :visible.sync="showAddField" class="right-side-dialog"
       custom-class="add-field-dialog" top="0">
@@ -102,6 +102,20 @@
                 <el-input v-model="option.label" :placeholder="'选项文本' + (index + 1)"></el-input>
                 <el-input v-model="option.value" :placeholder="'选项值' + (index + 1)"></el-input>
                 <el-button @click="removeOptionsFn('radioOptions', index)" type="text" icon="el-icon-delete"></el-button>
+              </div>
+            </div>
+            <!-- 下拉选项 -->
+            <div v-if="item === 'listSelOptions'" class="add-options">
+              <el-form-item label="选项" prop="params.listSelOptions" :rules='formRules.listSelOptions'>
+                <div class="add-options-btn">
+                  <el-button @click="addOptionsFn('listSelOptions')" type="primary" icon="el-icon-plus">添加</el-button>
+                </div>
+              </el-form-item>
+              <div v-for="(option, index) in appForm.params.listSelOptions" :key="index" class="options">
+                <el-checkbox v-model="option.isDefault" title="设为默认值"></el-checkbox>
+                <el-input v-model="option.label" :placeholder="'选项文本' + (index + 1)"></el-input>
+                <el-input v-model="option.value" :placeholder="'选项值' + (index + 1)"></el-input>
+                <el-button @click="removeOptionsFn('listSelOptions', index)" type="text" icon="el-icon-delete"></el-button>
               </div>
             </div>
             <!--  -->

@@ -36,6 +36,20 @@
               <el-radio  v-for="(option, index) in formItem.radioOptions" :key="index" :label="option.label"></el-radio>
             </el-radio-group>
         </el-form-item>
+        <!-- 下拉 -->
+        <el-form-item v-if="formItem.type == 'listSel'"
+          :label="formItem.displayValue"
+          :prop="formItem.itemCode">
+           <el-select v-model="renderForm[formItem.itemCode]"
+             :placeholder="formItem.displayValue">
+            <el-option
+              v-for="(option, index) in formItem.listSelOptions"
+              :key="index"
+              :label="option.label"
+              :value="option.value">
+            </el-option>
+          </el-select>
+        </el-form-item>
       </el-col>
     </el-form>
     <el-button type="primary" @click="confirmAddFieldFn">确 定</el-button>

@@ -17,7 +17,14 @@ export default {
         label: '',
         value: ''
       }
-    }
+    },
+    'listSelOptions': () => {
+      return {
+        isDefault: false,
+        label: '',
+        value: ''
+      }
+    },
   },
   typeList: [
     {
@@ -42,8 +49,8 @@ export default {
     },
     {
       type: 'listSel',
-      label: '下拉菜单',
-      paramList: []
+      label: '下拉',
+      paramList: ['listSelOptions']
     },
     {
       type: 'cascader',

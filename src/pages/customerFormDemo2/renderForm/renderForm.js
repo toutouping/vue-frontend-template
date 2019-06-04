@@ -10,6 +10,12 @@ export default {
       formRules: {}, // 表单校验规则
     }
   },
+  props: {
+    renderList: {
+      type: Array,
+      default: []
+    }
+  },
   created () {
     this._initFormList();
   },
@@ -28,116 +34,7 @@ export default {
     },
     _initFormList () {
       let ths = this;
-      let paramList = [
-        {
-          'displayValue': '单行文本',
-          'description': '单行文本单行文本单行文本',
-          'type': 'singleRowText',
-          'layout': '半行',
-          'params': {
-            'defaultValue': '默认值',
-            'minLength': '',
-            'maxLength': 5,
-            'validation': [{
-              'name': 'required',
-              'label': '必填',
-              'rule': '^.+$',
-              'prompt': '该字段不能为空'
-            },
-            {
-              'name': 'chinese',
-              'label': '中文',
-              'rule': '^[\\u4e00-\\u9fa5]{0,}$',
-              'prompt': '请填写中文'
-            }]
-          }
-        },
-        {
-          'displayValue': '单行文本',
-          'description': '单行文本单行文本单行文本',
-          'type': 'singleRowText',
-          'layout': '半行',
-          'params': {
-            'defaultValue': '默认值',
-            'minLength': 1,
-            'maxLength': 1,
-            'validation': [{
-              'name': 'required',
-              'label': '必填',
-              'rule': '^.+$',
-              'prompt': '该字段不能为空'
-            },
-            {
-              'name': 'chinese',
-              'label': '中文',
-              'rule': '^[\\u4e00-\\u9fa5]{0,}$',
-              'prompt': '请填写中文'
-            }]
-          }
-        },
-        {
-          'displayValue': '多行文本',
-          'description': '多行文本多行文本',
-          'type': 'multiRowText',
-          'layout': '整行',
-          'params': {
-            'isRootInsert': false,
-            'elm': {},
-            'validation': [{
-              'name': 'required',
-              'label': '必填',
-              'rule': '^.+$',
-              'prompt': '该字段不能为空'
-            },
-            {
-              'name': 'chinese',
-              'label': '中文',
-              'rule': '^[\\u4e00-\\u9fa5]{0,}$',
-              'prompt': '请填写中文'
-            }]
-          }
-        },
-        {
-          'displayValue': '多选',
-          'description': '多选多选多选',
-          'type': 'multiSel',
-          'validation': 'none',
-          'layout': '整行',
-          'params': {
-            'checkBoxOptions': [{
-              'isDefault': true,
-              'label': 'a',
-              'value': 'a'
-            }, {
-              'isDefault': false,
-              'label': 'b',
-              'value': 'b'
-            }, {
-              'isDefault': true,
-              'label': 'c',
-              'value': 'c'
-            }]
-          }
-        },
-        {
-          'displayValue': '单选',
-          'description': '单选单选单选',
-          'type': 'singleSel',
-          'validation': 'none',
-          'layout': '整行',
-          'params': {
-            'radioOptions': [{
-              'isDefault': true,
-              'label': 'a',
-              'value': 'a'
-            }, {
-              'isDefault': false,
-              'label': 'b',
-              'value': 'b'
-            }]
-          }
-        }
-      ]
+      let paramList = ths.renderList || [];
 
       paramList.forEach((item, index) => {
         let params = item.params || {};
@@ -172,6 +69,20 @@ export default {
           ths.$set(ths.renderForm, 'itemCode' + index, defaultValue);
           resultObj.itemCode = 'itemCode' + index;
           resultObj.radioOptions = radioOptions;
+          ths.formList.push(resultObj);
+        } else if (item.type === 'listSel') { // 单选
+          let resultObj = {...item};
+          let listSelOptions = params.listSelOptions || [];
+          let defaultValue = '';
+
+          listSelOptions.forEach(element => {
+            if (element.isDefault) {
+              defaultValue = element.value;
+            }
+          });
+          ths.$set(ths.renderForm, 'itemCode' + index, defaultValue);
+          resultObj.itemCode = 'itemCode' + index;
+          resultObj.listSelOptions = listSelOptions;
           ths.formList.push(resultObj);
         }
       });

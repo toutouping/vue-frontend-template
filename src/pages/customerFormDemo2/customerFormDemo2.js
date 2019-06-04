@@ -1,6 +1,7 @@
 import validationOptions from './validationOptions.js'
 import fieldTypeList from './fieldTypeList.js'
 import {isFunction} from '@/common/js/util.js'
+import customRule from './customRule.js'
 
 import renderForm from './renderForm/renderForm.vue';
 
@@ -31,7 +32,135 @@ export default {
       showAddField: true,
       selectTypeObj: fieldTypeList.typeList[0] || {},
       fieldTypeList: fieldTypeList.typeList,
-      validationOptions: validationOptions.options // 表单校验规则列表
+      validationOptions: validationOptions.options, // 表单校验规则列表
+      renderList: [
+        {
+          'displayValue': '单行文本',
+          'description': '单行文本单行文本单行文本',
+          'type': 'singleRowText',
+          'layout': '半行',
+          'params': {
+            'defaultValue': '默认值',
+            'minLength': '',
+            'maxLength': 5,
+            'validation': [{
+              'name': 'required',
+              'label': '必填',
+              'rule': '^.+$',
+              'prompt': '该字段不能为空'
+            },
+            {
+              'name': 'chinese',
+              'label': '中文',
+              'rule': '^[\\u4e00-\\u9fa5]{0,}$',
+              'prompt': '请填写中文'
+            }]
+          }
+        },
+        {
+          'displayValue': '单行文本',
+          'description': '单行文本单行文本单行文本',
+          'type': 'singleRowText',
+          'layout': '半行',
+          'params': {
+            'defaultValue': '默认值',
+            'minLength': 1,
+            'maxLength': 1,
+            'validation': [{
+              'name': 'required',
+              'label': '必填',
+              'rule': '^.+$',
+              'prompt': '该字段不能为空'
+            },
+            {
+              'name': 'chinese',
+              'label': '中文',
+              'rule': '^[\\u4e00-\\u9fa5]{0,}$',
+              'prompt': '请填写中文'
+            }]
+          }
+        },
+        {
+          'displayValue': '多行文本',
+          'description': '多行文本多行文本',
+          'type': 'multiRowText',
+          'layout': '整行',
+          'params': {
+            'isRootInsert': false,
+            'elm': {},
+            'validation': [{
+              'name': 'required',
+              'label': '必填',
+              'rule': '^.+$',
+              'prompt': '该字段不能为空'
+            },
+            {
+              'name': 'chinese',
+              'label': '中文',
+              'rule': '^[\\u4e00-\\u9fa5]{0,}$',
+              'prompt': '请填写中文'
+            }]
+          }
+        },
+        {
+          'displayValue': '多选',
+          'description': '多选多选多选',
+          'type': 'multiSel',
+          'validation': 'none',
+          'layout': '整行',
+          'params': {
+            'checkBoxOptions': [{
+              'isDefault': true,
+              'label': 'a',
+              'value': 'a'
+            }, {
+              'isDefault': false,
+              'label': 'b',
+              'value': 'b'
+            }, {
+              'isDefault': true,
+              'label': 'c',
+              'value': 'c'
+            }]
+          }
+        },
+        {
+          'displayValue': '单选',
+          'description': '单选单选单选',
+          'type': 'singleSel',
+          'validation': 'none',
+          'layout': '整行',
+          'params': {
+            'radioOptions': [{
+              'isDefault': true,
+              'label': 'a',
+              'value': 'a'
+            }, {
+              'isDefault': false,
+              'label': 'b',
+              'value': 'b'
+            }]
+          }
+        },
+        {
+          'displayValue': '下拉',
+          'description': '下拉下拉下拉',
+          'type': 'listSel',
+          'validation': 'none',
+          'layout': '整行',
+          'params': {
+            'listSelOptions': [{
+              'isDefault': false,
+              'label': 'a',
+              'value': 'a'
+            }, {
+              'isDefault': false,
+              'label': 'b',
+              'value': 'b'
+            }]
+          }
+        }
+      ]
     }
   },
   created() {
@@ -120,57 +249,6 @@ export default {
     },
     _initFormRules() { // 初始化校验规则
       let ths = this;
-      let checkBoxOptions = (rule, options, callback) => {
-        if (options && options.length === 0) {
-          callback(new Error('请输入选项内容'));
-        } else {
-          let isEmptyLabel = false;
-          let labelList = options.map(function (item) {
-              isEmptyLabel = isEmptyLabel || item['label'] === '';
-              return item['label'];
-            });
-          let valueList = options.map(function (item) {
-              return item['value'];
-            });
-          if (isEmptyLabel) {
-            callback(new Error('选项文本不能为空'));
-          } else if(new Set(labelList).size !== labelList.length) {
-            callback(new Error('选项文本不能重复'));
-          } else if(new Set(valueList).size !== valueList.length) {
-            callback(new Error('选项值不能重复'));
-          } else {
-            callback();
-          }
-        }
-      };
-      let checkRadioOptions = (rule, options, callback) => {
-        if (options && options.length === 0) {
-          callback(new Error('请输入选项内容'));
-        } else {
-          let isEmptyLabel = false;
-          let isDefaultList = options.filter(function (item) { // 选中的个数
-              return item['isDefault'];
-            });
-          let labelList = options.map(function (item) {
-              isEmptyLabel = isEmptyLabel || item['label'] === '';
-              return item['label'];
-            });
-          let valueList = options.map(function (item) {
-              return item['value'];
-            });
-          if (isDefaultList && isDefaultList.length > 1) {
-            callback(new Error('默认值只能选一个'));
-          } else if (isEmptyLabel) {
-            callback(new Error('选项文本不能为空'));
-          } else if(new Set(labelList).size !== labelList.length) {
-            callback(new Error('选项文本不能重复'));
-          } else if(new Set(valueList).size !== valueList.length) {
-            callback(new Error('选项值不能重复'));
-          } else {
-            callback();
-          }
-        }
-      };
 
       ths.formRules = {
         displayValue: [
@@ -185,11 +263,15 @@ export default {
         ],
         checkBoxOptions: [
           { required: true, message: '请输入选项内容', trigger: 'blur' },
-          { validator: checkBoxOptions, trigger: 'blur' }
+          { validator: customRule.checkBoxOptions, trigger: 'blur' }
         ],
         radioOptions: [
           { required: true, message: '请输入选项内容', trigger: 'blur' },
-          { validator: checkRadioOptions, trigger: 'blur' }
+          { validator: customRule.checkRadioOptions, trigger: 'blur' }
+        ],
+        listSelOptions: [
+          { required: true, message: '请输入选项内容', trigger: 'blur' },
+          { validator: customRule.checklistSelOptions, trigger: 'blur' }
         ]
       }
     },
