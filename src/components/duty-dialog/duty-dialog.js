@@ -1,4 +1,4 @@
-import demo from '@/api/demo';
+﻿import demo from '@/api/demo';
 
 export default {
   data () {
@@ -41,7 +41,7 @@ export default {
     this._getTreeList();
   },
   methods: {
-    _getTreeList () { // 获取室组
+    _getTreeList () {
       let ths = this;
 
       demo.getOrgList().then((res) => {
